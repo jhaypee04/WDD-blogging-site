@@ -1,0 +1,102 @@
+/* General */
+body {
+    margin: 0;
+    padding-top: 10vh;
+}
+nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 8vh;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    background: #000;
+    color: white;
+}
+.logo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+a.menu-bar{
+    display: none;
+    cursor: pointer;
+    color: black;
+}
+header {
+    width: 100%;
+    height: 10vh;
+    background: rgb(85, 85, 85);
+}
+main {
+    width: 100%;
+    height: 60vh;
+    background: rgb(207, 207, 207);
+}
+footer {
+    width: 100%;
+    height: 20vh;
+    background: rgb(85, 85, 85);
+}
+/* Nav anchor */
+a {
+    text-decoration: none;
+}
+.menu a, a.menu-bar {
+    background-color: pink;
+    padding: 10px;
+    border-radius: 20px;
+}
+.menu a:hover, a.menu-bar:hover {
+    background: salmon;
+    color: black;
+}
+.menu a:active, a.menu-bar:active {
+    background: pink;
+    color: rgb(90, 88, 88);
+}
+/* Mobile */
+@media screen and (max-width:920px) {
+    nav {
+        display: block;
+    }
+    .logo, .menu {
+        background: #000;
+        color: white;
+    }
+    a.menu-bar{
+        display: block;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+    }
+    .menu a {
+        display: block;
+        border-radius: 0px;
+        text-align: center;
+    }
+    .block {
+        display: block;
+    }
+    a {
+       animation: 4s linear 0s slide-down;
+    }
+    @keyframes slide-down {
+       from {
+           /* transform: translateY(0px) */
+           /* height: 0px; */
+           /* display: none; */
+       }
+       to {
+           /* transform: translateY(11px); */
+           /* height: 200px; */
+           /* display: block */
+       }
+    
+    }
+}

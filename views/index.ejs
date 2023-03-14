@@ -6,25 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="assets/navbar.css">
+    <script src="assets/script.js" defer></script>
 </head>
 <body>
+    <%- include('partials/nav') -%>
     <div class="container">
         <h1>Hello World</h1>
         <p>Welcome to my blogging site- to Add Blogs</p>
-        <nav class="index-nav">
-            <a id="addBlogs" href="/addBlogs">Add Blog</a>
-            <div class="menu">
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
-            </div>
-        </nav>
-
-        <div style="background: white; padding: 10px; margin-top: 10px;">
-            <nav>
-                <h1>All Blogs</h1>
-            </nav>
-        </div>
-        
     </div>
+    <%- include('partials/footer') -%>
 </body>
 </html>

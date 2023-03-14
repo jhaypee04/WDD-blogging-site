@@ -16,7 +16,7 @@
             <a href="/logout">Log out</a>
         </nav>
             
-        <form action="/success" method="post">
+        <form action="/addBlogs" method="post">
             <label for="username">Blog Author</label>
             <input type="text" id="username" name="username">
             <br>
@@ -28,6 +28,8 @@
             <br>
             <input type="submit">
         </form>
+
+        <%- include('../../partials/footer') -%>
     </div>
 </body>
 </html>

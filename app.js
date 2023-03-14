@@ -1,30 +1,33 @@
+require('dotenv').config()
 const express = require('express')
+const cookieParser = require('cookie-parser')
+const mongoose = require('mongoose')
+
+const authRoutes = require('./controllers/authRoutes')
+const pagesRoutes = require('./controllers/pagesRoutes')
+
+//Environment variables
+const port = process.env.PORT
+const mongodb = process.env.MONGODB
+// Connect to mongoDB
+mongoose.connect(mongodb)
+.then(()=>{
+    console.log('database connected')
+})
+.catch((err)=>{
+    console.log(err, 'Database connection failed')
+})
 const app = express()
+
 app.set('view engine', 'ejs')
 // Middleware
 app.use('/assets', express.static('assets'))
 app.use(express.urlencoded({extended: true}));
-// Home route
-app.get('/', (req, res)=>{
-    res.render('index')
-})
-// Add Blogs
-app.get('/addBlogs', (req, res) => {
-    res.render('addBlogs', { username: 'Johnpaul'})
-})
-// success
-app.post('/success', (req, res) => {
-    console.log(req.body)
-    res.render('success')
-})
+app.use(cookieParser())
 
-// Classwork
-// Handle login and register get routes
-
-
-// listener
-const port = 3000
+app.use('/', authRoutes)
+app.use('/', pagesRoutes)
 
 app.listen(port, ()=>{
-    console.log(`App started on port ${port}`);
+        console.log(`App started on port ${port}`);
 })
