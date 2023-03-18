@@ -7,6 +7,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/app.css">
     <style>
+        ::-webkit-scrollbar {
+            width: 1px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        
+        /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
         .app {
             background: #000;
             background-image: url('assets/manandwoman.jpg');
@@ -19,6 +32,9 @@
             margin: 38vh 0 2vh 0;
             font-weight: bold;
             font-size: 20px;
+        }
+        main {
+            overflow: auto;
         }
         form {
             width: 260px;
@@ -34,6 +50,7 @@
         }
         input[type='submit'] {
             background: #038343;
+            height: 40px;
             color: white;
         }
         input[type='submit']:hover {
@@ -56,6 +73,7 @@
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" id="" placeholder="Email">
                 <input type="password" name="password" id="" placeholder="Password">
+                <input type="text" name="username" placeholder="Enter link to your image">
                 <input type="submit" value="Continue">
             </form>
         </main>

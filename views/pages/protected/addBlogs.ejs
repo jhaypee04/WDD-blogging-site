@@ -5,31 +5,157 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="assets/app.css">
+    <style>
+        ::-webkit-scrollbar {
+        width: 1px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #888; 
+        }
+        header {
+            background: linear-gradient(#e66465, #9198e5);
+            height: 245px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        header .avatar {
+            width: 120px;
+            margin: 0 auto;
+            padding: 30px 0 20px 0;
+            box-sizing: border-box;
+        }
+        header .avatar img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        header .edit {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+        header .intro {
+            background: white;
+            width: 220px;
+            margin: 15px auto;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        main {
+            padding: 0 20px;
+            background: #f0efef;
+            height: 44vh;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            overflow-y: auto;
+        }
+        main form {
+            background: #ffffff;
+            font-size: 12px;
+            padding: 20px 10px 0px 10px;
+            box-sizing: border-box;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 20px;
+            border: 1px solid gray;
+            outline: 0;
+            margin-bottom: 20px;
+        }
+        input[type='submit'] {
+            background: #038343;
+            height: 40px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        input[type='submit']:hover {
+            background: #1ccf76;
+            
+        }
+        input[type='submit']:active {
+            background: #038343;
+        }
+        select {
+            width: 100%;
+            margin: 10px auto;
+            padding: 10px;
+            height: 40px;
+            border-radius: 20px;
+            display: block;
+            border: 1px solid gray;
+            outline: 0;
+        }
+        option {
+            background: #9198e5;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Add Blogs</h1>
-        <p>Welcome <b><%= username %></b></p>
-        <nav style="margin-bottom: 10px;">
-            <a href="/">View Blogs</a>
-            <a href="/logout">Log out</a>
-        </nav>
-            
-        <form action="/addBlogs" method="post">
-            <label for="username">Blog Author</label>
-            <input type="text" id="username" name="username">
-            <br>
-            <label for="title">Title of Post</label>
-            <input type="text" id="title" name="title">
-            <br>
-            <label for="body">Body of Post</label>
-            <textarea name="body" id="body" ></textarea>
-            <br>
-            <input type="submit">
-        </form>
-
-        <%- include('../../partials/footer') -%>
+    <div class="app">
+        <header>
+            <div class="avatar">
+                <img src="assets/jp.jpg" alt="j">
+            </div>
+            <div class="edit">
+                <div>JohnPaul</div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg>
+                </div>
+            </div>
+            <div class="intro">
+                USER PROFILE
+            </div>
+        </header>
+        <main>
+            <form action="/addBlogs"  method="post">
+                <div>
+                    <label>Project Name</label>
+                    <input type="text" name="title" placeholder="Enter your project's name">
+                </div>
+                <div>
+                    <label>Url to html file</label>
+                    <input type="text" name="body" placeholder="Enter link to index.html">
+                </div>
+                <div>
+                    <label>Choose Category</label>
+                    <select name="" id="">
+                        <option value="">Todo App</option>
+                        <option value="">Game Console</option>
+                        <option value="">Slider AKA Carousel</option>
+                        <option value="">Rainbow</option>
+                        <option value="">Random Rainbow</option>
+                        <option value="">Chat App</option>
+                        <option value="">Navbar</option>
+                        <option value="">Calculator</option>
+                        <option value="">Modal</option>
+                        <option value="">Exam App</option>
+                        <option value="">Search Bar</option>
+                        <option value="">Project Card</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </main>
     </div>
 </body>
 </html>
