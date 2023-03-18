@@ -5,25 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/navbar.css">
-    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="assets/app.css">
+    <style>
+        .app {
+            background: #000;
+            background-image: url('assets/welcomingpeople.avif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+        }
+        header {
+            color: white;
+            margin: 50vh 0 2vh 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        form {
+            width: 260px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border: 0;
+            outline: 0;
+        }
+        input[type='submit'] {
+            background: #038343;
+            height: 40px;
+            color: white;
+        }
+        input[type='submit']:hover {
+            background: #1ccf76;
+            
+        }
+        input[type='submit']:active {
+            background: #038343;
+            
+        }
+    </style>
 </head>
 <body>
-    <%- include('../../partials/nav') -%>
-    <div class="container">
-        <h1>Login</h1>
-        <a href="/">View Blogs</a>
-        <form action="/login" method="post">
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email">
-            <br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <br>
-            <br>
-            <input type="submit">
-        </form>
+    <div class="app">
+        <header>
+            Log in
+        </header>
+        <main>
+            <form action="/login">
+                <input type="email" name="email" id="" placeholder="Email">
+                <input type="password" name="password" id="" placeholder="Password">
+                <input type="submit" value="Continue">
+            </form>
+        </main>
     </div>
 </body>
 </html>

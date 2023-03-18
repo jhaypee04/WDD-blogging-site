@@ -7,221 +7,67 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/app.css">
     <style>
-        :root {
-            --primary: rgb(250, 90, 54);
-            --primary-hover: rgb(250, 125, 97);
-            --bg: rgb(245, 244, 244);
-            --grey: rgb(109, 109, 109);
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .gray_text {
-            color: var(--grey)
-        }
         .app {
-            background: var(--bg);
-            overflow-y: auto;
+            background: #038343;
         }
-        .pending_task{
+        header img {
+            width:100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        main {
+            margin: 3vh 0 6vh 0;
+        }
+        main .heading, .message p, footer .register a, footer .login, footer .login a {
+            color: white;
+            font-weight: bold;
+        }
+        main .heading {
+            font-size: 25px;
+        }
+        main .message p, footer .login {
             font-size: 11px;
         }
-        header{
-            padding: 2vh 0;
-        }
-        header, form, .cards, .heading, .card_title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header .left .greeting, .heading, .card_title {
-            font-weight: bold;
-        }
-        header .left .pending_task, .heading .pending_task a, .contributors .pending_task{
-            font-weight: bold;
-            color: var(--primary);
-        }
-        header .right {
-            width: 35px;
-            border-radius: 50%;
-        }
-        header .right img, .card .contributors img {
-            width: 100%;
-            border-radius: 50%;
-        }
-        section, .cards {
-            margin: 2vh 0 4vh 0;
-        }
-        /* form  {
-        } */
-        form div input {
-            width: 210px;
-            border-radius: 20px;
-            outline: 0;
-            border: 0;
-            padding: 10px 10px 10px 15px;
-        }
-        form .funnel_icon {
-            background: var(--primary);
-            border-radius: 50%;
-            padding:4px 5px 1px 5px;
-            box-sizing: border-box;
-            box-shadow: 0px 5px 15px 0px rgb(250, 90, 54, .6);
-        }
-        form .funnel_icon:hover {
-            background: var(--primary-hover);
-        }
-        form .funnel_icon:active {
-            background: var(--primary);
-        }
-        form .funnel_icon a svg {
-            fill: white;
-        }
-        .card {
-            width: 125px;
-            /* height: 200px; */
-            padding: 15px 20px;
-            box-sizing: border-box;
-            border-radius: 20px;
+        footer .register a {
+            text-decoration: none;
             background: white;
-        }
-        .card:hover {
-            background: rgb(221, 220, 220);
-        }
-        .card .card_title {
-            font-size: 14px;
-        }
-        .card .pending_task {
-            color: var(--grey);
-            margin: 5px 0 2px 0;
-        }
-        .card .image img {
+            color: #038343;
             width: 100%;
-            margin: 10px 0 0 0;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            display: block;
+            text-align: center;
+            padding: 10px 0 10px 0;
+            border-radius: 20px;
+            margin-bottom: 20px;
         }
-        .full{
-            width: 100%;
-        }
-        .card .contributors {
-            width: 25px;
-            border-radius: 50%;
-            margin: 5px 0 0px 0;
-            padding-left: 5px;
-            display: flex;
-            align-items: center;
-        }
-        .card .contributors img{
-            margin-left: -5px;
-            height: 30px;
+        footer .login {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="app">
         <header>
-            <div class="left">
-                <div class="greeting">
-                    <span>Hi</span>,
-                    <span>Johnpaul</span>
-                </div>
-                <div class="pending_task">
-                    20 done projects
-                </div>
-            </div>
-            <div class="right">
-                <img src="assets/jp.jpg" alt="jp">
-            </div>
+            <img src="assets/twopeople.jpg" alt="">
         </header>
-        <section>
-            <form action="#">
-                <div>
-                    <input type="search" name="" id=""
-                        placeholder="Search"
-                    >
-                </div>
-                <div class="funnel_icon">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M14 13v7h-4v-7L2.95 4h18.1Zm-2-.7L16.95 6h-9.9Zm0 0Z"/></svg>
-                    </a>
-                </div>
-            </form>
-        </section>
-        <section>
-            <div class="heading">Categories</div>
-            <div class="cards">
-                <div class="card">
-                    <div class="card_title">Frontend</div>
-                    <div class="pending_task">
-                        <span>10</span>
-                        <span>Tasks</span>
-                    </div>
-                    <div class="image">
-                        <img src="assets/love.jpg" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card_title">Backend</div>
-                    <div class="pending_task">
-                        <span>10</span>
-                        <span>Projects</span>
-                    </div>
-                    <div class="image">
-                        <img src="assets/love.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
+        <main>
             <div class="heading">
-                <div>Ongoing Projects</div>
-                <div class="pending_task">
-                    <a href="#">See all</a>
-                </div>
+                <div>Welcome</div>
+                <div>to</div>
+                <div>WDD-blogging-site</div>
             </div>
-            <a href="#">
-                <div class="cards">
-                    <div class="card full">
-                        <div class="card_title">
-                            <div class="left">Todo App</div>
-                            <div class="right pending_task gray_text">Frontend</div>
-                        </div>
-                        <div class="pending_task">
-                            Team members
-                        </div>
-                        <div class="contributors">
-                            <img src="assets/jp.jpg" alt="">
-                            <img src="assets/helen.jpg" alt="">
-                            <img src="assets/chisom.jpg" alt="">
-                            <img src="assets/helen.jpg" alt="">
-                            <img src="assets/chisom.jpg" alt="">
-                            <span class="" style="color:var(--primary)">+</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="cards">
-                    <div class="card full">
-                        <div class="card_title">
-                            <div class="left">Game Console</div>
-                            <div class="right pending_task gray_text">Frontend</div>
-                        </div>
-                        <div class="pending_task">
-                            Team members
-                        </div>
-                        <div class="contributors">
-                            <img src="assets/jp.jpg" alt="">
-                            <img src="assets/helen.jpg" alt="">
-                            <img src="assets/chisom.jpg" alt="">
-                            <!-- <span class="" style="color:var(--primary)">+</span> -->
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </section>
+            <div class="message">
+                <p>Post your web design and development projects. Come back anytime to view it. Use this as your bragging right as a Certified Frontend Web Designer</p>
+            </div>
+        </main>
+        <footer>
+            <div class="register">
+                <a href="/register">Register</a>
+            </div>
+            <div class="login">
+                Already a member?
+                <a href="/login">Log in</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
