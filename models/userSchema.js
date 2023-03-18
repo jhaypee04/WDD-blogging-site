@@ -1,10 +1,11 @@
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/blog')
+const mongoose = require("mongoose");
+const mongodb = process.env.MONGODB;
+mongoose.connect(mongodb);
 
 const userSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String
-})
+  username: String,
+  email: String,
+  password: String,
+});
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model("user", userSchema);

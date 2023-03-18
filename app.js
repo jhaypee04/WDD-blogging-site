@@ -7,7 +7,7 @@ const authRoutes = require("./controllers/authRoutes");
 const pagesRoutes = require("./controllers/pagesRoutes");
 
 //Environment variables
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const mongodb = process.env.MONGODB;
 // Connect to mongoDB
 mongoose
