@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <style>
+        ::-webkit-scrollbar {
+        width: 1px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #888; 
+        }
+        :root {
+            --primary: rgb(250, 90, 54);
+            --primary-hover: rgb(250, 125, 97);
+            --bg: rgb(245, 244, 244);
+            --grey: rgb(109, 109, 109);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .gray_text {
+            color: var(--grey)
+        }
+        .app {
+            background: var(--bg);
+            overflow-y: auto;
+            /* font-family: 'Poppins'; */
+        }
+        .pending_task{
+            font-size: 11px;
+        }
+        header{
+            padding: 1vh 10px;
+            border-radius: 50px;
+            box-sizing: border-box;
+            background: linear-gradient(#ffffff, #e3e0df);
+            cursor: pointer;
+            height:fit-content;
+        }
+        header:hover{
+            background: linear-gradient(#fff8f8, #cdc4c0);
+        }
+        header:active{
+            background: linear-gradient(#ffffff, #e3e0df);
+            user-select: none;
+        }
+        .row1, form, .cards, .heading, .card_title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .left .greeting, .heading, .card_title {
+            font-weight: bold;
+        }
+        header .left .pending_task, .heading .pending_task a, .contributors .pending_task{
+            font-weight: bold;
+            color: var(--primary);
+        }
+        header .right {
+            width: 35px;
+            border-radius: 50%;
+        }
+        header .right img, .card .contributors img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        header .left .greeting span:nth-child(2n+1) {
+            font-size:10px;
+            font-weight: normal;
+        }
+        header .left .greeting span:nth-child(2n) {
+            font-size:12px;
+        }
+        header .row1 {
+            padding: 10px 0 0 0;
+        }
+        header .row2 {
+            /* font-weight: bold; */
+            text-align: center;
+        }
+        header .row2 .pending_task {
+            color: var(--primary)
+        }
+        header .row2 svg {
+            fill: var(--grey)
+        }
+        header .message {
+            background: linear-gradient(#ffffff, #dadada);
+            padding: 5px 10px;
+            box-sizing: border-box;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            display: none;
+        }
+        header .message p{
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            text-align:start;
+        }
+        header .message ul{
+            margin: 4px;
+            font-size: 10px;
+            list-style-type:lower-roman;
+        }
+        header .message li::marker{
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .bi-caret-up-fill {
+            display: none;
+        }
+        section form {
+            margin: 15px 0;
+        }
+        section form div input {
+            width: 210px;
+            border-radius: 20px;
+            outline: 0;
+            border: 0;
+            padding: 10px 10px 10px 15px;
+        }
+        section form .funnel_icon {
+            background: var(--primary);
+            border-radius: 50%;
+            padding:4px 5px 1px 5px;
+            box-sizing: border-box;
+            box-shadow: 0px 5px 15px 0px rgb(250, 90, 54, .6);
+        }
+        section form .funnel_icon:hover {
+            background: var(--primary-hover);
+        }
+        section form .funnel_icon:active {
+            background: var(--primary);
+        }
+        section form .funnel_icon a svg {
+            fill: white;
+        }
+        main .intro {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #6d6b6b;
+        }
+        /* Project Card */
+        .details h1,h2,p{
+            text-align: center;
+            margin: 0;
+            color: #646464
+        }
+        .details h1{
+            font-size: 14px;
+        }
+        .details h2{
+            font-size: 10px;
+            margin-top: 10px;
+        }
+        .details p{
+            font-size: 8px;
+            font-weight: bold;
+            color: rgb(125, 125, 125)
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 0 10px;
+        }
+        @media screen and (max-width: 720px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+            }
+            
+        }
+        .card-container {
+            width: 100%;
+            background: rgb(255, 255, 255);
+            position: relative;
+            padding: 80px 0 10px 10px;
+            box-sizing:border-box;
+            /* margin-top: 10px; */
+            margin: 0px 0 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .card-container:hover{
+            background: rgb(240, 239, 239);
+        }
+        .card:hover {
+            background: rgb(255, 250, 250);
+            /* background: rgb(239, 238, 238); */
+        }
+        .details:hover{
+            background: rgb(228, 228, 228);
+        }
+        .image-container:hover {
+            border: 10px solid rgb(255, 250, 250);
+        }
+        .card-container:active{
+            background: rgb(255, 255, 255);
+        }
+        .card:active {
+            background: rgb(228, 228, 228);
+            /* background: rgb(239, 238, 238); */
+        }
+        .details:active{
+            background: rgb(255, 254, 254);
+        }
+        .image-container:active {
+            border: 10px solid rgb(207, 202, 202);
+        }
+        .image-container {
+            width: 80px;
+            height: 80px;
+            background: rgb(255, 250, 250);
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: -10px;
+            border: 10px solid rgb(207, 202, 202)
+        }
+        .card {
+            width: 100%;
+            background: rgb(228, 228, 228);
+            padding: 25px 10px 10px 10px;
+            box-sizing: border-box;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 30px;
+        }
+        .details {
+            background: rgb(255, 254, 254);
+            padding: 20px 10px;
+            box-sizing: border-box;
+            border-top-right-radius: 60px;
+            border-top-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
+        .details span{
+            font-size: 12px;
+            color: white;
+            display: block;
+            text-align: center;
+            width: 70px;
+            margin: 5px auto -10px auto;
+            background: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        .image-container img {
+            width: 80px;
+            height:80px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="row1">
+                <div class="left">
+                    <div class="greeting">
+                        <span>Instructor</span>,
+                        <span>Edozie Johnpaul Uzoma</span>
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="assets/jp.jpg" alt="jp">
+                </div>
+            </div>
+            <div class="row2">
+                <div style="font-size: 14px;">JavaScript</div>
+                <div class="pending_task">
+                    <span>Todo App</span>
+                    Instructions
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                  </svg>
+            </div>
+            <div class="message">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt error sequi vel esse nam excepturi magni odit fugit aspernatur, molestias est consectetur dolores magnam. Expedita placeat veritatis aliquid natus assumenda.</p>
+                <ul>
+                    <li>Guildline one</li>
+                    <li>Guildline two</li>
+                    <li>Guildline three</li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <form action="#">
+                <div>
+                    <input type="search" name="" id=""
+                        placeholder="Search"
+                    >
+                </div>
+                <div class="funnel_icon">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M14 13v7h-4v-7L2.95 4h18.1Zm-2-.7L16.95 6h-9.9Zm0 0Z"/></svg>
+                    </a>
+                </div>
+            </form>
+        </section>
+        <main>
+            <div class="intro">Projects gallery</div>
+            <div class="card-container">
+                <div class="image-container" style="left: 80px">
+                    <img src="assets/jp.jpg" alt="">
+                </div>
+                <div class="card" style="border-top-left-radius: 30px;">
+                    <div class="details">
+                        <h1>Instructor's Guide</h1>
+                        <h2>JavaScript StopWatch</h2>
+                        <p>Project Title</p>
+                        <span>See Project</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="image-container">
+                    <img src="assets/chisom.jpg" alt="">
+                </div>
+                <div class="card">
+                    <div class="details">
+                        <h1>Deborah Favour Olufemi</h1>
+                        <p>Name of Student</p>
+                        <h2>JavaScript StopWatch</h2>
+                        <p>Project Title</p>
+                        <h2>Web Design and Development</h2>
+                        <p>Course of Study</p>
+                        <span>See Project</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        var header = document.querySelector('header')
+        var message = document.querySelector('.message')
+        var cd = document.querySelector('.bi-caret-down-fill')
+        var cp = document.querySelector('.bi-caret-up-fill')
+        var msd = message.style,
+        cdsd = cd.style,
+        cpsd = cp.style
+        header.addEventListener('click', ()=>{
+            var bool = message.classList.toggle('block')
+            bool == true ? msd.display = 'block': msd.display = 'none'
+            if (bool){
+                cdsd.display = 'none'
+                cpsd.display = 'inline'
+            }
+            else {
+                cdsd.display = 'inline'
+                cpsd.display = 'none'
+            }
+        })
+    </script>
+</body>
+</html>

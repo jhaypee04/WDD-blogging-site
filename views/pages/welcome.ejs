@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/app.css">
+    <style>
+        .app {
+            background: #038343;
+        }
+        header img {
+            width:100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        main {
+            margin: 3vh 0 6vh 0;
+        }
+        main .heading, .message p, footer .register a, footer .login, footer .login a {
+            color: white;
+            font-weight: bold;
+        }
+        main .heading {
+            font-size: 25px;
+        }
+        main .message p, footer .login {
+            font-size: 11px;
+        }
+        footer .register a {
+            text-decoration: none;
+            background: white;
+            color: #038343;
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding: 10px 0 10px 0;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        footer .login {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <img src="assets/twopeople.jpg" alt="">
+        </header>
+        <main>
+            <div class="heading">
+                <div>Welcome</div>
+                <div>to</div>
+                <div>WDD-blogging-site</div>
+            </div>
+            <div class="message">
+                <p>Post your web design and development projects. Come back anytime to view it. Use this as your bragging right as a Certified Frontend Web Designer</p>
+            </div>
+        </main>
+        <footer>
+            <div class="register">
+                <a href="/register">Register</a>
+            </div>
+            <div class="login">
+                Already a member?
+                <a href="/login">Log in</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

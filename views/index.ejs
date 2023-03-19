@@ -7,65 +7,112 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/app.css">
     <style>
-        .app {
-            background: #038343;
+        :root {
+            --primary: rgb(250, 90, 54);
         }
-        header img {
-            width:100%;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
+        header {
+            padding: 4vh 0 6vh 0;
         }
         main {
-            margin: 3vh 0 6vh 0;
-        }
-        main .heading, .message p, footer .register a, footer .login, footer .login a {
-            color: white;
-            font-weight: bold;
+            height: 65vh;
+            
         }
         main .heading {
-            font-size: 25px;
+            height: 10vh;
+            font-size:large;
+            font-weight: bold;
+            
         }
-        main .message p, footer .login {
-            font-size: 11px;
+        main .heading a {
+            color:var(--primary)
         }
-        footer .register a {
-            text-decoration: none;
-            background: white;
-            color: #038343;
+        main .image img{
             width: 100%;
-            display: block;
-            text-align: center;
-            padding: 10px 0 10px 0;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            height: 30vh;
         }
-        footer .login {
+        main .message {
+            width: 70%;
+        }
+        main .message p{
+            font-size: 12px;
+        }
+        main .icon {
             text-align: center;
+            margin: 4vh auto 0 auto;
+            padding: 4px 0 1px 0;
+            width: 34px;
+            height: 36px;
+            border: 1px solid #9a9a9a;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        main .icon svg{
+            fill: black;
+        }
+        main .icon svg:hover {
+            fill: rgb(73, 72, 72);
+        }
+        main .icon svg:active {
+            fill: rgb(0, 0, 0);
+            user-select: none;
+        }
+        footer{
+            height: 5vh;
+        }
+        footer .button {
+            text-align: center;
+        }
+        footer .button a{
+            text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 1vh 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px 0px rgb(250, 90, 54, .6);
+        }
+        footer .button a:hover {
+            background: rgb(252, 128, 100);
+            color: white;
+        }
+        footer .button a:active {
+            background: var(--primary);
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="app">
         <header>
-            <img src="assets/twopeople.jpg" alt="">
+            <span class="title">Web Design and Development</span>
         </header>
         <main>
             <div class="heading">
-                <div>Welcome</div>
-                <div>to</div>
-                <div>WDD-blogging-site</div>
+                <div>Manage your</div>
+                <div>projects &amp; everything</div>
+                <div>
+                    <span>learn </span>
+                    <a href="/overview">W.D.D</a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="assets/3-2.jpg" alt="graphic">
             </div>
             <div class="message">
-                <p>Post your web design and development projects. Come back anytime to view it. Use this as your bragging right as a Certified Frontend Web Designer</p>
+                <p>
+                    When you're overwhelmed by the amount of work you have on your plate, stop and rethink.
+                </p>
             </div>
+            <a href="https://www.youtube.com/channel/UCfu0g8paGJ7AjuvZj5g-dNA">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                      </svg>
+                </div>
+            </a>
         </main>
         <footer>
-            <div class="register">
-                <a href="/register">Register</a>
-            </div>
-            <div class="login">
-                Already a member?
-                <a href="/login">Log in</a>
+            <div class="button">
+                <a href="/welcome">Let's Start</a>
             </div>
         </footer>
     </div>

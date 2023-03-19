@@ -9,6 +9,10 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("index");
 });
+// welcome
+router.get("/welcome", (req, res) => {
+  res.render("pages/welcome");
+});
 // AddBlogs get
 router.get("/addBlogs", protectRoute, (req, res) => {
   res.render("pages/protected/addBlogs", { username: "Johnpaul" });
@@ -44,8 +48,12 @@ function protectRoute(req, res, next) {
   }
 }
 
-// wdd-projects
-router.get("/wddprojects", (req, res) => {
-  res.render("pages/wddprojects/wddproject.ejs");
+// overview
+router.get("/overview", (req, res) => {
+  res.render("pages/overview");
+});
+// galery
+router.get("/galery", (req, res) => {
+  res.render("pages/galery");
 });
 module.exports = router;
