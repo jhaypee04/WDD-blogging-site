@@ -285,7 +285,11 @@
             <div class="row2">
                 <div style="font-size: 14px;">JavaScript</div>
                 <div class="pending_task">
-                    <span>Todo App</span>
+                    <span>
+                        <% posts.forEach(post => { %>
+                            <%= post.category %>
+                        <% }) %>
+                    </span>
                     Instructions
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -327,7 +331,11 @@
                 <div class="card" style="border-top-left-radius: 30px;">
                     <div class="details">
                         <h1>Instructor's Guide</h1>
-                        <h2>JavaScript StopWatch</h2>
+                        <h2>
+                            <% posts.forEach(post => { %>
+                                <%= post.title %>
+                            <% }) %>
+                        </h2>
                         <p>Project Title</p>
                         <span>See Project</span>
                     </div>

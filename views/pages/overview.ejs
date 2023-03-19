@@ -151,8 +151,14 @@
         <header>
             <div class="left">
                 <div class="greeting">
-                    <span>Hi</span>,
-                    <span>Johnpaul</span>
+                    <span>Hello</span>,
+                    <span>
+                        <% if(userlogged === undefined ){ %>
+                            <%= "Friend" %>
+                        <% }else { %>
+                            <%= userlogged.user.username %>
+                        <% } %>
+                    </span>
                 </div>
                 <div class="pending_task">
                     20 done projects

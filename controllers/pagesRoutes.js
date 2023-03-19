@@ -1,9 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const blogSchema = require("../models/blogSchema");
+const userSchema = require("../models/userSchema");
 
 const secretKey = process.env.SECRETKEY;
 const router = express.Router();
+var userlogged;
 
 // Home route
 router.get("/", (req, res) => {
@@ -13,8 +15,23 @@ router.get("/", (req, res) => {
 router.get("/welcome", (req, res) => {
   res.render("pages/welcome");
 });
+// overview
+router.get("/overview", async (req, res) => {
+  const posts = await blogSchema.find();
+  console.log(userlogged, posts);
+
+  res.render("pages/overview", { posts, userlogged });
+});
+// galery
+router.get("/galery", async (req, res) => {
+  const posts = await blogSchema.find();
+  console.log(userlogged, posts);
+
+  res.render("pages/galery", { posts, userlogged });
+});
 // AddBlogs get
 router.get("/addBlogs", protectRoute, (req, res) => {
+  // console.log(req.user.user.username);
   res.render("pages/protected/addBlogs", { username: "Johnpaul" });
 });
 // AddBlogs post
@@ -23,9 +40,9 @@ router.post("/addBlogs", (req, res) => {
   run();
   async function run() {
     const blogs = new blogSchema({
-      username: req.body.username,
       title: req.body.title,
       body: req.body.body,
+      category: req.body.category,
     });
     await blogs.save();
   }
@@ -38,8 +55,8 @@ function protectRoute(req, res, next) {
   console.log(token);
   try {
     const user = jwt.verify(token, secretKey);
-    req.user = user;
-    // console.log(req.user)
+    // req.user = user;
+    userlogged = user;
     next();
   } catch (err) {
     res.clearCookie("token");
@@ -48,12 +65,4 @@ function protectRoute(req, res, next) {
   }
 }
 
-// overview
-router.get("/overview", (req, res) => {
-  res.render("pages/overview");
-});
-// galery
-router.get("/galery", (req, res) => {
-  res.render("pages/galery");
-});
 module.exports = router;
