@@ -62,6 +62,7 @@ router.post("/register", async (req, res) => {
   async function registerUser() {
     const user = new userSchema({
       username: req.body.username,
+      fullname: req.body.fullname,
       email: req.body.email,
       password: hashedPassword,
       imglink: req.body.imglink,

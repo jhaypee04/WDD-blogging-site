@@ -25,6 +25,7 @@
             background-image: url('assets/manandwoman.jpg');
             background-size: contain;
             background-repeat: no-repeat;
+            overflow-y: auto;
             
         }
         header {
@@ -33,10 +34,8 @@
             font-weight: bold;
             font-size: 20px;
         }
-        main {
-            overflow: auto;
-        }
         form {
+            overflow-y: auto;
             width: 260px;
         }
         input {
@@ -68,15 +67,14 @@
         <header>
             Sign up
         </header>
-        <main>
-            <form action="/register" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="email" name="email" id="" placeholder="Email" required>
-                <input type="password" name="password" id="" placeholder="Password" required>
-                <input type="text" name="imglink" placeholder="Enter link to your image" required>
-                <input type="submit" value="Continue">
-            </form>
-        </main>
+        <form action="/register" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" id="" placeholder="Email" required>
+            <input type="password" name="password" id="" placeholder="Password" required>
+            <input type="text" name="imglink" placeholder="Enter link to your image" required>
+            <input type="submit" value="Continue">
+        </form>
     </div>
 </body>
 </html>

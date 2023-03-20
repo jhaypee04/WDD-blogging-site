@@ -31,7 +31,6 @@ router.get("/galery", async (req, res) => {
 });
 // AddBlogs get
 router.get("/addBlogs", protectRoute, async (req, res) => {
-  const posts = await blogSchema.find();
   const users = await userSchema.find();
   var rigthUser;
   users.forEach((user) => {
@@ -43,7 +42,7 @@ router.get("/addBlogs", protectRoute, async (req, res) => {
   res.render("pages/protected/addBlogs", { userlogged, rigthUser });
 });
 // AddBlogs post
-router.post("/addBlogs", (req, res) => {
+router.post("/addBlogs", async (req, res) => {
   console.log(req.body);
   run();
   async function run() {
@@ -51,10 +50,21 @@ router.post("/addBlogs", (req, res) => {
       title: req.body.title,
       body: req.body.body,
       category: req.body.category,
+      category: req.body.category,
+      username: req.body.username,
+      fullname: req.body.fullname,
     });
     await blogs.save();
   }
-  res.render("pages/protected/addBlogs", { username: "Johnpaul" });
+  const users = await userSchema.find();
+  var rigthUser;
+  users.forEach((user) => {
+    if (user.username == userlogged.user.username) {
+      rigthUser = user;
+    }
+  });
+  console.log(userlogged, rigthUser);
+  res.render("pages/protected/addBlogs", { userlogged, rigthUser });
 });
 
 // custom built middleware

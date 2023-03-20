@@ -4,6 +4,7 @@ mongoose.connect(mongodb);
 
 const userSchema = new mongoose.Schema({
   username: String,
+  fullname: String,
   email: String,
   password: String,
   imglink: String,

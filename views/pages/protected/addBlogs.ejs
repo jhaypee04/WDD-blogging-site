@@ -128,15 +128,15 @@
             <form action="/addBlogs"  method="post">
                 <div>
                     <label>Project Name</label>
-                    <input type="text" name="title" placeholder="Enter your project's name">
+                    <input type="text" name="title" placeholder="Enter your project's name" required>
                 </div>
                 <div>
                     <label>Github Url to html file</label>
-                    <input type="text" name="body" placeholder="Enter link to index.html">
+                    <input type="text" name="body" placeholder="Enter link to index.html" required>
                 </div>
                 <div>
                     <label>Choose Category</label>
-                    <select name="category" id="">
+                    <select name="category" id="" required>
                         <option value="todoapp">Todo App</option>
                         <option value="gameconsole">Game Console</option>
                         <option value="slider">Slider AKA Carousel</option>
@@ -154,6 +154,8 @@
                 <div>
                     <input type="submit" value="Save">
                 </div>
+                <input type=hidden name="username" value="<%= rigthUser.username %>">
+                <input type=hidden name="fullname" value="<%= rigthUser.fullname %>">
             </form>
         </main>
     </div>
