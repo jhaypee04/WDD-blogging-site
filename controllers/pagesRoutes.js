@@ -30,9 +30,17 @@ router.get("/galery", async (req, res) => {
   res.render("pages/galery", { posts, userlogged });
 });
 // AddBlogs get
-router.get("/addBlogs", protectRoute, (req, res) => {
-  // console.log(req.user.user.username);
-  res.render("pages/protected/addBlogs", { username: "Johnpaul" });
+router.get("/addBlogs", protectRoute, async (req, res) => {
+  const posts = await blogSchema.find();
+  const users = await userSchema.find();
+  var rigthUser;
+  users.forEach((user) => {
+    if (user.username == userlogged.user.username) {
+      rigthUser = user;
+    }
+  });
+  console.log(userlogged, rigthUser);
+  res.render("pages/protected/addBlogs", { userlogged, rigthUser });
 });
 // AddBlogs post
 router.post("/addBlogs", (req, res) => {
