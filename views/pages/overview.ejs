@@ -5,12 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practical</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
     <link rel="stylesheet" href="assets/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    </head>
+    <style>
+        ::-webkit-scrollbar {
+            width: 1px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+        :root {
+            --primary: rgb(250, 90, 54);
+            --primary-hover: rgb(250, 125, 97);
+            --bg: rgb(245, 244, 244);
+            --grey: rgb(109, 109, 109);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .gray_text {
+            color: var(--grey)
+        }
+        .app {
+            background: var(--bg);
+            overflow-y: auto;
+        }
+        .pending_task{
+            font-size: 11px;
+        }
+        header{
+            padding: 2vh 0;
+        }
+        header, form, .cards, .heading, .card_title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .left .greeting, .heading, .card_title {
+            font-weight: bold;
+        }
+        header .left .pending_task, .heading .pending_task a, .contributors .pending_task{
+            font-weight: bold;
+            color: var(--primary);
+        }
+        header .right {
+            width: 35px;
+            border-radius: 50%;
+        }
+        header .right img, .card .contributors img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        section, .cards {
+            margin: 2vh 0 4vh 0;
+        }
+        /* form  {
+        } */
+        form div input {
+            width: 210px;
+            border-radius: 20px;
+            outline: 0;
+            border: 0;
+            padding: 10px 10px 10px 15px;
+        }
+        form .funnel_icon {
+            background: var(--primary);
+            border-radius: 50%;
+            padding:4px 5px 1px 5px;
+            box-sizing: border-box;
+            box-shadow: 0px 5px 15px 0px rgb(250, 90, 54, .6);
+        }
+        form .funnel_icon:hover {
+            background: var(--primary-hover);
+        }
+        form .funnel_icon:active {
+            background: var(--primary);
+        }
+        form .funnel_icon a svg {
+            fill: white;
+        }
+        .card {
+            width: 125px;
+            /* height: 200px; */
+            padding: 15px 20px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            background: white;
+        }
+        .card:hover {
+            background: rgb(221, 220, 220);
+        }
+        .card .card_title {
+            font-size: 14px;
+        }
+        .card .pending_task {
+            color: var(--grey);
+            margin: 5px 0 2px 0;
+        }
+        .card .image img {
+            width: 100%;
+            margin: 10px 0 0 0;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .full{
+            width: 100%;
+        }
+        .card .contributors {
+            width: 25px;
+            border-radius: 50%;
+            margin: 5px 0 0px 0;
+            padding-left: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .card .contributors img{
+            margin-left: -5px;
+            height: 30px;
+        }
+    </style>
+</head>
 <body>
     <div class="app">
         <header>

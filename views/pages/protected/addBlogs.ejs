@@ -109,11 +109,7 @@
     <div class="app">
         <header>
             <div class="avatar">
-                <img src="<% if(rigthUser === undefined ){ %>
-                            <%= "Friend" %>
-                        <% }else { %>
-                            <%= rigthUser.imglink %>
-                        <% } %>" alt="j">
+                <img src="<%= rigthUser.imglink %>" alt="j">
             </div>
             <div class="edit">
                 <div><%= rigthUser.username %></div>
@@ -135,7 +131,7 @@
                     <input type="text" name="title" placeholder="Enter your project's name">
                 </div>
                 <div>
-                    <label>Url to html file</label>
+                    <label>Github Url to html file</label>
                     <input type="text" name="body" placeholder="Enter link to index.html">
                 </div>
                 <div>
